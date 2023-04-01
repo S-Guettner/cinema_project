@@ -4,6 +4,7 @@ import { readFile ,appendFile, writeFile } from "./fsHelper.js"
 import './config.js'
 
 import mongoose from "mongoose"
+import seatSchema from './dataModul.js'
 
 
 import seatData from './seatData.json' assert {
@@ -19,7 +20,7 @@ const PORT_CLIENT = process.env.PORT_CLIENT.toString()
 app.use(cors({origin: `http://localhost:${PORT_CLIENT}` }))
 
 // get seat status
-app.get("/api/v1/getSeats", (req, res) => {
+/* app.get("/api/v1/getSeats", (req, res) => {
     readFile()
         .then(data => res.json(data))
         .catch(err => console.log(err))
@@ -28,6 +29,19 @@ app.get("/api/v1/getSeats", (req, res) => {
 app.get("/api/v1/getSeats/:seatNumber", (req,res) => {
     res.send(`get id route with params ${req.params.seatNumber}`)
 })
+ */
+
+
+app.post('/' , async(req,res) => {
+    try {
+        const seatSch = await seatSchema.create(req.body)
+        res.status(200).json(seatSch)
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).json({message: err.message})
+    }
+})
+
 
 
 const DB_USERNAME = process.env.DB_USERNAME

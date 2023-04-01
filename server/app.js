@@ -63,6 +63,30 @@ app.get('/seats/:id', async(req,res) => {
     }
 })
 
+// change data in DB
+
+app.put('/seats/:id', async(req,res) => {
+    try {
+        const {id} = req.params
+        const seatData = await seatSchema.findByIdAndUpdate(id , req.body)
+        //err
+        if(!seatData){
+            return res.status(404).json({message: 'cannot find searched id'})
+        }else{
+            const updated = await seatSchema.findById(id)
+            res.status(200).json(updated)
+        }
+        
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).json({message: err.message})
+    }
+})
+
+
+
+
+
 
 
 // DB setup ===================================

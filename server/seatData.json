@@ -1,27 +1,122 @@
 [
-    {"seatNumber":1,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":2,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":3,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":4,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":5,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":6,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":7,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":8,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":9,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":10,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":11,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":12,"seatStatus":false,"seatPrice": 12},
-    {"seatNumber":13,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":14,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":15,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":16,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":17,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":18,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":19,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":20,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":21,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":22,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":23,"seatStatus":false,"seatPrice": 16},
-    {"seatNumber":24,"seatStatus":false,"seatPrice": 16}
-    
+  {
+    "seatNumber": 1,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 2,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 3,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 4,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 5,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 6,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 7,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 8,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 9,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 10,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 11,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 12,
+    "seatStatus": false,
+    "seatPrice": 12
+  },
+  {
+    "seatNumber": 13,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 14,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 15,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 16,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 17,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 18,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 19,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 20,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 21,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 22,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 23,
+    "seatStatus": false,
+    "seatPrice": 16
+  },
+  {
+    "seatNumber": 24,
+    "seatStatus": false,
+    "seatPrice": 16
+  }
 ]

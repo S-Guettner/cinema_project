@@ -11,3 +11,35 @@ export const readFile = () => {
 
     })
 }
+
+export const writeFile = (data) => {
+    return new Promise((resolve, reject) => {
+        // Schreibt die Daten in die Datei ./posts.json
+        fs.writeFile("./seatData.json", JSON.stringify(data, null, 2), (err) => {
+            if (err) reject(err)
+            else {
+                resolve("DateneGeschrieben")  // Wenn das Schreiben erfolgreich ist, wird ein Erfolgsversprechen zurückgegeben
+            }
+        })
+    })
+}
+
+
+
+
+
+export const appendFile = (newPost) => {
+    return new Promise((resolve, reject) => {
+        // Liest die aktuelle Datei ein
+        readFile()
+            .then(oldPosts => {
+                // Erstellt ein neues Array, indem die alten Daten kopiert und die neuen Daten hinzugefügt werden
+                const newData = [...oldPosts, newPost]
+                // Schreibt die neuen Daten in die Datei
+                writeFile(newData)
+                    .then(res => resolve(newData))  // Wenn das Schreiben erfolgreich ist, wird das neue Datenarray zurückgegeben
+                    .catch(err => reject(err))
+            })
+            .catch(err => reject(err))
+    })
+}

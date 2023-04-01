@@ -1,10 +1,14 @@
 import express  from "express"
 import cors from 'cors'
-import { readFile } from "./fsHelper.js"
+import { readFile ,appendFile, writeFile } from "./fsHelper.js"
 import './config.js'
+import seatData from './seatData.json' assert {
+  type: 'json',
+  integrity: 'sha384-ABC123'
+}
 
 const app = express()
-/* app.express.json() */
+app.use(express.json())
 
 const PORT = process.env.PORT
 const PORT_CLIENT = process.env.PORT_CLIENT.toString()
@@ -17,10 +21,31 @@ app.get("/api/v1/getSeats", (req, res) => {
         .catch(err => console.log(err))
 })
 
+app.get("/api/v1/getSeats/:seatNumber", (req,res) => {
+    res.send(`get id route with params ${req.params.seatNumber}`)
+})
 
 
+app.patch("/api/v1/getSeats/:seatNumber", (req,res) => {
+
+    const {seatNumber} = req.params
+    /* console.log(seatNumber) */
+    let searchedSeat 
+
+    readFile()
+    .then(data => data.find((item)=> {
+        if(item.seatNumber == seatNumber){
+            item.seatStatus = !item.seatStatus
+            /* console.log(item.seatStatus) */
 
 
+            /* res.json(item)  */
+            res.end()
+        }
+    }))
+    
+    
+})
 
 
 

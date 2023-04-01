@@ -1,5 +1,6 @@
 import express  from "express"
 import cors from 'cors'
+// .env import
 import './config.js'
 
 import mongoose from "mongoose"

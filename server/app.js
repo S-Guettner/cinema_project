@@ -7,35 +7,27 @@ import mongoose from "mongoose"
 import seatSchema from './dataModul.js'
 
 
-import seatData from './seatData.json' assert {
-  type: 'json',
-  integrity: 'sha384-ABC123'
-}
+// server setup ===================================
 
 const app = express()
 app.use(express.json())
 
 const PORT = process.env.PORT
 const PORT_CLIENT = process.env.PORT_CLIENT.toString()
+
 app.use(cors({origin: `http://localhost:${PORT_CLIENT}` }))
 
-// get seat status
-/* app.get("/api/v1/getSeats", (req, res) => {
-    readFile()
-        .then(data => res.json(data))
-        .catch(err => console.log(err))
-})
-
-app.get("/api/v1/getSeats/:seatNumber", (req,res) => {
-    res.send(`get id route with params ${req.params.seatNumber}`)
-})
- */
 
 
+
+
+// routes setup ===================================
+
+// send .json data to DB
 app.post('/' , async(req,res) => {
     try {
-        const seatSch = await seatSchema.create(req.body)
-        res.status(200).json(seatSch)
+        const seatsData = await seatSchema.create(req.body)
+        res.status(200).json(seatsData)
     } catch (err) {
         console.log(err.message)
         res.status(500).json({message: err.message})
@@ -43,6 +35,37 @@ app.post('/' , async(req,res) => {
 })
 
 
+
+// get data from DB
+
+//.find({}) gets all data
+app.get('/seats' , async(req,res) => {
+    try {
+        const seatsData = await seatSchema.find({})
+        res.status(200).json(seatsData)
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).json({message: err.message})
+    }
+})
+
+// get data from specific element from DB 
+
+app.get('/seats/:id', async(req,res) => {
+    try {
+        const {id} = req.params
+        const seatData = await seatSchema.findById(id)
+        res.status(200).json(seatData)
+        
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).json({message: err.message})
+    }
+})
+
+
+
+// DB setup ===================================
 
 const DB_USERNAME = process.env.DB_USERNAME
 const DB_PASS = process.env.DB_PASS
@@ -54,6 +77,7 @@ mongoose.connect(`mongodb+srv://${DB_USERNAME}:${DB_PASS}@cinemaprojectdb.nitzm3
     console.log("Connected to DB 👍")
 })
 .catch((err) => console.log("ERROR - not able to connect to DB 👎"))
+
 
 
 

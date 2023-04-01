@@ -24,7 +24,7 @@ app.use(cors({origin: `http://localhost:${PORT_CLIENT}` }))
 // routes setup ===================================
 
 // send .json data to DB
-app.post('/' , async(req,res) => {
+app.post('/api/v1/send' , async(req,res) => {
     try {
         const seatsData = await seatSchema.create(req.body)
         res.status(200).json(seatsData)
@@ -39,7 +39,7 @@ app.post('/' , async(req,res) => {
 // get data from DB
 
 //.find({}) gets all data
-app.get('/seats' , async(req,res) => {
+app.get('/api/v1//seats' , async(req,res) => {
     try {
         const seatsData = await seatSchema.find({})
         res.status(200).json(seatsData)
@@ -51,7 +51,7 @@ app.get('/seats' , async(req,res) => {
 
 // get data from specific element from DB 
 
-app.get('/seats/:id', async(req,res) => {
+app.get('/api/v1//seats/:id', async(req,res) => {
     try {
         const {id} = req.params
         const seatData = await seatSchema.findById(id)
@@ -65,7 +65,7 @@ app.get('/seats/:id', async(req,res) => {
 
 // change data in DB
 
-app.put('/seats/:id', async(req,res) => {
+app.put('/api/v1//seats/update/:id', async(req,res) => {
     try {
         const {id} = req.params
         const seatData = await seatSchema.findByIdAndUpdate(id , req.body)
@@ -83,8 +83,22 @@ app.put('/seats/:id', async(req,res) => {
     }
 })
 
+// change all bookedSeats to false
 
-
+app.put('/api/v1//seats/reset_all', async(req,res) => {
+    try {
+        /* const {id} = req.params */
+        const seatData = await seatSchema.updateMany({"seatBooked": true} , {$set: {"seatBooked":false}})
+        
+           /*  const updated = await seatSchema.findById(id) */
+            res.status(200).json(seatData)
+        
+        
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).json({message: err.message})
+    }
+})
 
 
 

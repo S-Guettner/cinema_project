@@ -1,6 +1,5 @@
 import express  from "express"
 import cors from 'cors'
-import { readFile ,appendFile, writeFile } from "./fsHelper.js"
 import './config.js'
 
 import mongoose from "mongoose"
@@ -49,6 +48,7 @@ app.get('/api/v1//seats' , async(req,res) => {
     }
 })
 
+
 // get data from specific element from DB 
 
 app.get('/api/v1//seats/:id', async(req,res) => {
@@ -62,6 +62,7 @@ app.get('/api/v1//seats/:id', async(req,res) => {
         res.status(500).json({message: err.message})
     }
 })
+
 
 // change data in DB
 
@@ -82,6 +83,7 @@ app.put('/api/v1//seats/update/:id', async(req,res) => {
         res.status(500).json({message: err.message})
     }
 })
+
 
 // change all bookedSeats to false
 

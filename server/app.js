@@ -1,12 +1,12 @@
 import express  from "express"
 import cors from 'cors'
 // .env import
-import '../env_config.js'
+import './env_config.js'
 
 import mongoose from "mongoose"
-import seatSchema from '../dataModul.js'
+import seatSchema from './dataModul.js'
 
-import mailSender from '../nodeMailer.js'
+import mailSender from './nodeMailer.js'
 
 
 
@@ -19,7 +19,7 @@ app.use(express.json())
 const PORT = process.env.PORT
 const PORT_CLIENT = process.env.PORT_CLIENT.toString()
 
-/* app.use(cors()) */
+app.use(cors({origin:`http://localhost:${PORT_CLIENT}`}))
 
 
 
@@ -43,7 +43,7 @@ app.post('/api/v1/send' , async(req,res) => {
 // get data from DB
 
 //.find({}) gets all data
-app.get('https://cinema-project-theta.vercel.app/api/v1/seats' , async(req,res) => {
+app.get('/api/v1/seats' , async(req,res) => {
     try {
         const seatsData = await seatSchema.find({})
         res.status(200).json(seatsData)

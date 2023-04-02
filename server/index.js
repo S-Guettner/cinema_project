@@ -86,6 +86,7 @@ app.put('api/v1/seats/update/:id', async(req,res) => {
     try {
         const {id} = req.params
         const seatData = await seatSchema.findByIdAndUpdate(id , req.body)
+        res.status(200).json(req.body)
         //err
         if(!seatData){
             return res.status(404).json({message: 'cannot find searched id'})

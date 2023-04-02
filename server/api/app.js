@@ -43,7 +43,7 @@ app.post('/api/v1/send' , async(req,res) => {
 // get data from DB
 
 //.find({}) gets all data
-app.get('/api/v1/seats' , async(req,res) => {
+app.get('https://cinema-project-theta.vercel.app/api/v1/seats' , async(req,res) => {
     try {
         const seatsData = await seatSchema.find({})
         res.status(200).json(seatsData)

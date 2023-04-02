@@ -28,7 +28,9 @@ app.use(cors({origin:`http://localhost:${PORT_CLIENT}`}))
 // routes setup ===================================
 
 // send .json data to DB
-app.post('/api/v1/send' , async(req,res) => {
+
+/* only needed for sending data to DB */
+/* app.post('/api/v1/send' , async(req,res) => {
     try {
         const seatsData = await seatSchema.create(req.body)
         res.status(200).json(seatsData)
@@ -37,7 +39,7 @@ app.post('/api/v1/send' , async(req,res) => {
         res.status(500).json({message: err.message})
     }
 })
-
+ */
 
 
 // get data from DB

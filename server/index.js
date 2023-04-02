@@ -21,9 +21,9 @@ const PORT_CLIENT = process.env.PORT_CLIENT.toString()
 
 app.use(cors(
     {
-        origin:`https://cinema-project-vtqv.vercel.app`,
-        allowMethods: "*",
-        allowedHeaders: "*"
+        origin: 'https://cinema-project-vtqv.vercel.app',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        headers: ['Content-Type', 'Authorization']
     }
     ))
 

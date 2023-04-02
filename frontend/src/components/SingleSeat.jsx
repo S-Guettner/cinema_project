@@ -7,7 +7,7 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
         const seatColor = bookedStatus === false ? color : "red"
         
 
-        const [toggle,setToggle] = useState(false)
+        const [toggle,setToggle] = useState(true)
 
         /* change body: JSON.stringify({"seatBooked" : true}) now WORKING!!!!! */
         const clickHandler = () => {

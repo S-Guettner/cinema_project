@@ -6,19 +6,25 @@ import { v4 as uuidv4 } from 'uuid'
 const SeatList = () => {
 
     const [seatData,setSeatData] = useState([])
+    
+    const [dataTimer,setDataTimer] = useState(true)
 
+        const interval = setInterval(() => {
+            setDataTimer(!dataTimer)
+            console.log(dataTimer)
+        }, 5000)
+     
+        //stops intervall
+        clearInterval(interval)
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            fetch(`https://cinema-booking-system.vercel.app/api/v1/seats`)
+
+            fetch(`http://localhost:9090/api/v1/seats`)
             .then(res => res.json())
             .then(data => {
                 setSeatData(data?.sort((a, b) => (a.seatNumber > b.seatNumber) ? 1 : -1))
             })
-
-        }, 5000)
-    return () => clearInterval(interval);
-    }, []);
+    }, [/* dataTimer */])
 
 
 console.log(seatData)

@@ -12,7 +12,7 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
                  headers: {
                 'Content-Type': 'application/json',
                 },
-                body: {"seatBooked" : true}
+                body: JSON.stringify({"seatBooked" : true}) 
             })
 
         }

@@ -9,6 +9,9 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
         const clickHandler = () => {
             fetch(`https://cinema-booking-system.vercel.app/api/v1/seats/update/${id}` , {
                 method: "PUT",
+                 headers: {
+                'Content-Type': 'application/json',
+                },
                 body: {"seatBooked" : true}
             })
 

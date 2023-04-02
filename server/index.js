@@ -8,7 +8,7 @@ import seatSchema from './dataModul.js'
 
 import mailSender from './nodeMailer.js'
 
-
+//changing app.js to index.js fixed deployment problem
 
 
 // server setup ===================================

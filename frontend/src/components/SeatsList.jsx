@@ -7,14 +7,20 @@ const SeatList = () => {
 
     const [seatData,setSeatData] = useState([])
 
-    useEffect(() => {
-        fetch(`https://cinema-booking-system.vercel.app/api/v1/seats`)
-        .then(res => res.json())
-        .then(data => {
-            setSeatData(data?.sort((a, b) => (a.seatNumber > b.seatNumber) ? 1 : -1))
-        })
 
-    },[])
+    useEffect(() => {
+        const interval = setInterval(() => {
+            fetch(`https://cinema-booking-system.vercel.app/api/v1/seats`)
+            .then(res => res.json())
+            .then(data => {
+                setSeatData(data?.sort((a, b) => (a.seatNumber > b.seatNumber) ? 1 : -1))
+            })
+
+        }, 5000)
+    return () => clearInterval(interval);
+    }, []);
+
+
 console.log(seatData)
     return ( 
         <main>

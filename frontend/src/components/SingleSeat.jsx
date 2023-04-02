@@ -12,6 +12,7 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
         /* change body: JSON.stringify({"seatBooked" : true}) now WORKING!!!!! */
         const clickHandler = () => {
             
+            console.log(toggle)
             setToggle(!toggle)
             console.log(toggle)
             

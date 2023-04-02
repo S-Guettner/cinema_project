@@ -7,6 +7,8 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
         const seatColor = bookedStatus === false ? color : "red"
         
 
+
+
         /* change body: JSON.stringify({"seatBooked" : true}) now WORKING!!!!! */
         const clickHandler = () => {
             fetch(`https://cinema-booking-system.vercel.app/api/v1/seats/update/${id}` , {
@@ -14,7 +16,7 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
                  headers: {
                 'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({"seatBooked" : true}) 
+                body: JSON.stringify({"seatBooked" : false}) 
             })
 
         }

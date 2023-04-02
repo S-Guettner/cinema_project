@@ -7,10 +7,14 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
         const seatColor = bookedStatus === false ? color : "red"
         
 
-
+        const [toggle,setToggle] = useState(false)
 
         /* change body: JSON.stringify({"seatBooked" : true}) now WORKING!!!!! */
         const clickHandler = () => {
+            
+            setToggle(!toggle)
+            console.log(toggle)
+            
             fetch(`https://cinema-booking-system.vercel.app/api/v1/seats/update/${id}` , {
                 method: "PUT",
                  headers: {
@@ -20,7 +24,7 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
             })
 
         }
-        
+        console.log(toggle)
 
         return ( 
             <button >

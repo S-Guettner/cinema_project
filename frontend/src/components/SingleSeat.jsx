@@ -13,7 +13,7 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
             })
 
         }
-        console.log(id)
+        
 
         return ( 
             <button >

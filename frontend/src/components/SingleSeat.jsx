@@ -17,7 +17,7 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
 
         return ( 
             <button >
-                <div onClick={clickHandler} className={`w-10 h-10 text-center rounded-full bg-[red] inline-block`}>
+                <div onClick={clickHandler} className={`w-10 h-10 text-center rounded-full bg-[${seatColor}] inline-block`}>
                     <p>{number}</p>
                     <p>{bookedStatus.toString()}</p>
                     <p>{price}€</p>

@@ -19,7 +19,7 @@ app.use(express.json())
 const PORT = process.env.PORT
 const PORT_CLIENT = process.env.PORT_CLIENT.toString()
 
-/* app.use(cors({origin: `http://localhost:${PORT_CLIENT}` })) */
+app.use(cors({origin: `https://cinema-project-6nupe3w4q-s-guettner.vercel.app/:${PORT_CLIENT}` }))
 
 
 

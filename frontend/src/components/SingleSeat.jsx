@@ -15,16 +15,16 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
             setToggle(!toggle)
             console.log(toggle)
             
+            
             fetch(`https://cinema-booking-system.vercel.app/api/v1/seats/update/${id}` , {
                 method: "PUT",
                  headers: {
                 'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({"seatBooked" : false}) 
+                body: JSON.stringify({"seatBooked" : toggle}) 
             })
 
         }
-        console.log(toggle)
 
         return ( 
             <button >

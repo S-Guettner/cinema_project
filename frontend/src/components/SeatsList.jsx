@@ -31,6 +31,7 @@ console.log(seatData)
     return ( 
         <main>
             <h1>SEATLIST</h1>
+            <div className="w-60 text-center bg-orange-500 mb-12">movie screen</div>
             <section>
                 <div className=" w-60">
                     {seatData?.map((seat) => {

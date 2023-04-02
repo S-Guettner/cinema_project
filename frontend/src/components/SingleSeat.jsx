@@ -3,10 +3,24 @@ import { useState,useEffect } from "react"
 
 const SingleSeat = ({number,bookedStatus,price,id}) => {
 
-        const color = number > 12 ? "green" : "blue"
-        const seatColor = bookedStatus === false ? color : "red"
+        const [seatColorState,setSeatColorState] = useState("")
+
+        useEffect(() => {
+            if(number > 12 && bookedStatus === false){
+                setSeatColorState("green")
+            }
+            else if(number <= 12 && bookedStatus === false){
+                setSeatColorState("blue")
+            }else{
+                setSeatColorState("red")
+            }
+
+        },[])
+
+/*         const color = number > 12 ? "green" : "blue"
+        const seatColor = bookedStatus === false ? color : "red" */
         
-        console.log(seatColor.toString())
+        /* console.log(seatColor) */
 
         const [toggle,setToggle] = useState(true)
 
@@ -30,11 +44,11 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
 
         return ( 
             <button >
-                <div onClick={clickHandler} className={`w-10 h-10 text-center rounded-full bg-[${seatColor}] inline-block`}>
+                <div onClick={clickHandler} className={`w-10 h-10 text-center rounded-full bg-[${seatColorState}] inline-block`}>
                     <p>{number}</p>
                     <p>{bookedStatus.toString()}</p>
                     <p>{price}€</p>
-                    <p>{`${seatColor}`}</p>
+                    <p>{`${seatColorState}`}</p>
                 </div>
             </button>
      )

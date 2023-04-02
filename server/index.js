@@ -21,7 +21,7 @@ const PORT_CLIENT = process.env.PORT_CLIENT.toString()
 
 app.use(cors(
     {
-        origin: 'https://cinema-project-vtqv.vercel.app',
+        origin: '*',
         methods: ['GET', 'PUT'],
         allowedHeaders: ['Content-Type', 'Authorization'],
         preflightContinue: false,
@@ -117,6 +117,21 @@ app.put('/api/v1/seats/reset_all', async(req,res) => {
         res.status(500).json({message: err.message})
     }
 })
+
+
+// get all booked seats
+
+app.get('/api/v1/booked-seats' , async(req,res) => {
+    try {
+        const seatsData = await seatSchema.find({seatBooked: true})
+        res.status(200).json(seatsData)
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).json({message: err.message})
+    }
+})
+
+
 
 
 // nodemail

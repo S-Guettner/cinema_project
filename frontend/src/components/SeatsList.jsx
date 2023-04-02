@@ -8,15 +8,14 @@ const SeatList = () => {
     const [seatData,setSeatData] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:9090/api/v1/getSeats`)
+        fetch(`https://cinema-booking-system.vercel.app/api/v1/seats`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
-            setSeatData(data)
+            setSeatData(data?.sort((a, b) => (a.seatNumber > b.seatNumber) ? 1 : -1))
         })
 
     },[])
-
+console.log(seatData)
     return ( 
         <main>
             <h1>SEATLIST</h1>
@@ -26,9 +25,10 @@ const SeatList = () => {
                         return(
                             <SingleSeat 
                             key={uuidv4()}
-                            seatNumber={seat.seatNumber}
-                            seatStatus={seat.seatStatus}
-                            seatPrice={seat.seatPrice}
+                            number={seat.seatNumber}
+                            bookedStatus={seat.seatBooked}
+                            price={seat.seatPrice}
+                            id={seat._id}
                             />
                         )
                     })}

@@ -1,18 +1,29 @@
-import { useState } from "react"
+import { useState,useEffect } from "react"
 
 
-const SingleSeat = ({seatNumber,seatStatus,seatPrice}) => {
+const SingleSeat = ({number,bookedStatus,price,id}) => {
 
-    //setting colors for seats
-    const color = seatNumber > 12 ? "green" : "yellow"
-    const seatColor = seatStatus === false ? color : "red"
+        const color = number > 12 ? "yellow" : "blue"
+        const seatColor = bookedStatus === false ? color : "red"
 
-    return ( 
-        <div className={` w-10 h-10 text-center rounded-full bg-[${seatColor}] inline-block`}>
-            <p>{seatNumber}</p>
-            <p>{seatStatus.toString()}</p>
-            <p>{seatPrice}€</p>
-        </div>
+        const clickHandler = () => {
+            fetch(`https://cinema-booking-system.vercel.app//api/v1/seats/update/${id}` , {
+                method: "PUT",
+                body: true
+            })
+
+        }
+
+
+        return ( 
+            <button >
+                <div onClick={clickHandler} className={`w-10 h-10 text-center rounded-full bg-[${seatColor}] inline-block`}>
+                    <p>{number}</p>
+                    <p>{bookedStatus.toString()}</p>
+                    <p>{price}€</p>
+                    <p>{`${seatColor}`}</p>
+                </div>
+            </button>
      )
 }
  

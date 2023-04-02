@@ -6,6 +6,10 @@ import './env_config.js'
 import mongoose from "mongoose"
 import seatSchema from './dataModul.js'
 
+import mailSender from './nodeMailer.js'
+
+
+
 
 // server setup ===================================
 
@@ -39,7 +43,7 @@ app.post('/api/v1/send' , async(req,res) => {
 // get data from DB
 
 //.find({}) gets all data
-app.get('/api/v1//seats' , async(req,res) => {
+app.get('/api/v1/seats' , async(req,res) => {
     try {
         const seatsData = await seatSchema.find({})
         res.status(200).json(seatsData)
@@ -52,7 +56,7 @@ app.get('/api/v1//seats' , async(req,res) => {
 
 // get data from specific element from DB 
 
-app.get('/api/v1//seats/:id', async(req,res) => {
+app.get('/api/v1/seats/:id', async(req,res) => {
     try {
         const {id} = req.params
         const seatData = await seatSchema.findById(id)
@@ -67,7 +71,7 @@ app.get('/api/v1//seats/:id', async(req,res) => {
 
 // change data in DB
 
-app.put('/api/v1//seats/update/:id', async(req,res) => {
+app.put('/api/v1/seats/update/:id', async(req,res) => {
     try {
         const {id} = req.params
         const seatData = await seatSchema.findByIdAndUpdate(id , req.body)
@@ -81,14 +85,14 @@ app.put('/api/v1//seats/update/:id', async(req,res) => {
         
     } catch (err) {
         console.log(err.message)
-        res.status(500).json({message: err.message})
+        res.status(500).json({message: "cannot found id "})
     }
 })
 
 
 // change all bookedSeats to false
 
-app.put('/api/v1//seats/reset_all', async(req,res) => {
+app.put('/api/v1/seats/reset_all', async(req,res) => {
     try {
         /* const {id} = req.params */
         const seatData = await seatSchema.updateMany({"seatBooked": true} , {$set: {"seatBooked":false}})
@@ -96,6 +100,22 @@ app.put('/api/v1//seats/reset_all', async(req,res) => {
            /*  const updated = await seatSchema.findById(id) */
             res.status(200).json(seatData)
         
+        
+    } catch (err) {
+        console.log(err.message)
+        res.status(500).json({message: err.message})
+    }
+})
+
+
+// nodemail
+
+app.post('/api/v1/send_mail', (req,res) => {
+    try {
+        const content = req.body
+        // nodemail function
+        mailSender(content)
+        res.status(200).json({message:"mail was sent"})
         
     } catch (err) {
         console.log(err.message)

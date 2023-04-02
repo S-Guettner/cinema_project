@@ -7,7 +7,7 @@ const MAIL_PORT = process.env.MAIL_PORT
 const MAIL_SERVER = process.env.MAIL_SERVER
 
 // async..await is not allowed in global scope, must use a wrapper
-async function main() {
+async function mailSender(content) {
   
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -26,9 +26,9 @@ async function main() {
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: `cinema system <${MAIL_ADRESS}>`, // sender address
-    to: "jenob67375@cyclesat.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
+    to: "tadipah118@dogemn.com", // list of receivers
+    subject: "Hello ✔ test 2", // Subject line
+    text: `${content}`, // plain text body
     html: "<b>Hello world?</b>", // html body
   });
 
@@ -40,8 +40,8 @@ async function main() {
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
-main().catch(console.error);
 
 
 
-export default main
+
+export default mailSender

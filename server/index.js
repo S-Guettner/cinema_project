@@ -23,7 +23,10 @@ app.use(cors(
     {
         origin: 'https://cinema-project-vtqv.vercel.app',
         methods: ['GET', 'PUT'],
-        headers: ['Content-Type', 'Authorization']
+        allowedHeaders: ['Content-Type', 'Authorization'],
+        credentials: true,
+        preflightContinue: true,
+        optionsSuccessStatus: 204
     }
     ))
 

@@ -25,7 +25,7 @@ app.use(cors(
         methods: ['GET', 'PUT'],
         allowedHeaders: ['Content-Type', 'Authorization'],
         credentials: true,
-        preflightContinue: true,
+        preflightContinue: false,
         optionsSuccessStatus: 204
     }
     ))

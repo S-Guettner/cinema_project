@@ -82,7 +82,7 @@ app.get('/api/v1/seats/:id', async(req,res) => {
 
 // change data in DB
 
-app.put('/api/v1/seats/update/:id', async(req,res) => {
+app.put('api/v1/seats/update/:id', async(req,res) => {
     try {
         const {id} = req.params
         const seatData = await seatSchema.findByIdAndUpdate(id , req.body)

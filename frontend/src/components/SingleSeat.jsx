@@ -1,9 +1,10 @@
 import { useState,useEffect } from "react"
 
 
-const SingleSeat = ({number,bookedStatus,price,id}) => {
+const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
 
         const [seatColorState,setSeatColorState] = useState("")
+        /* const [triggerState,setTriggerState] = useState(trigger) */
 
         useEffect(() => {
             if(number > 12 && bookedStatus === false){
@@ -17,6 +18,8 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
 
         },[])
 
+
+        
 /*         const color = number > 12 ? "green" : "blue"
         const seatColor = bookedStatus === false ? color : "red" */
         
@@ -29,7 +32,8 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
             
             setToggle(!toggle)
             /* console.log(toggle) */
-            
+            trigger(!toggle)
+            console.log(trigger)
             
             fetch(`http://localhost:9090/api/v1/seats/update/${id}` , {
                 method: "PUT",
@@ -41,14 +45,14 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
             
         }
         
-        console.log(toggle)
+        /* console.log(toggle) */
         return ( 
-            <button >
+            <button className="m-[.5rem]">
                 <div onClick={clickHandler} className={`${seatColorState}`}>
-                    <p>{number}</p>
+                    <p className="pt-2">{number}</p>
                     <p>{`${bookedStatus}`}</p>
-                    <p>{price}€</p>
-{/*                     <p>{`${seatColorState}`}</p> */}
+                    {/* <p>{price}€</p> */}
+                    {/* <p>{`${seatColorState}`}</p> */}
                 </div>
             </button>
      )

@@ -7,15 +7,9 @@ const SeatList = () => {
 
     const [seatData,setSeatData] = useState([])
     
-    const [dataTimer,setDataTimer] = useState(true)
+    const [fetchTrigger,setFetchTrigger] = useState(false)
 
-        const interval = setInterval(() => {
-            setDataTimer(!dataTimer)
-            console.log(dataTimer)
-        }, 5000)
-     
-        //stops intervall
-        clearInterval(interval)
+    console.log(fetchTrigger)
 
     useEffect(() => {
 
@@ -24,16 +18,15 @@ const SeatList = () => {
             .then(data => {
                 setSeatData(data?.sort((a, b) => (a.seatNumber > b.seatNumber) ? 1 : -1))
             })
-    }, [/* dataTimer */])
+    }, [fetchTrigger])
 
 
 console.log(seatData)
     return ( 
         <main>
-            <h1>SEATLIST</h1>
-            <div className="w-60 text-center bg-orange-500 mb-12">movie screen</div>
+            <div className="w-60 text-center bg-orange-500 mb-12 mt-10">movie screen</div>
             <section>
-                <div className=" w-60">
+                <div className=" w-60 mb-4 ml-2">
                     {seatData?.map((seat) => {
                         return(
                             <SingleSeat 
@@ -42,11 +35,13 @@ console.log(seatData)
                             bookedStatus={seat.seatBooked}
                             price={seat.seatPrice}
                             id={seat._id}
+                            trigger={setFetchTrigger}
                             />
                         )
                     })}
                 </div>
-                <div></div>
+                <div className="bg-blue-500 block w-60 text-center">PARKETT 12€</div>
+                <div className="bg-green-500 block w-60 text-center mb-10">LOGE 16€</div>
             </section>
         </main>
      )

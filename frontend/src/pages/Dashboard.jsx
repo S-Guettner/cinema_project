@@ -51,7 +51,7 @@ const Dashboard = () => {
 console.log(reset) */
 
     return ( 
-        <main>
+        <main className="text-center">
             <p>{revenue}€ earned</p>
             <p>{soldSeats} of 24 seats booked</p>
             <button className="block mb-4 border-2 p-2" onClick={clickHandlerReset}>RESET</button>

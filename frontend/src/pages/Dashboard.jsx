@@ -10,6 +10,8 @@ const Dashboard = () => {
     const [revenue,setRevenue] = useState(0)
     const [reset,setReset] = useState(false)
 
+    console.log(revenue)
+
     useEffect(() => {
         fetch(`http://localhost:9090/api/v1/booked-seats`)
         .then(res => res.json())
@@ -31,8 +33,7 @@ const Dashboard = () => {
     },[reset])
 
     const clickHandlerReset = () => {
-        setReset(!reset)
-        setRevenue(0)
+        
 
         fetch('http://localhost:9090/api/v1/seats/reset_all' , {
             method: "PUT",
@@ -40,9 +41,14 @@ const Dashboard = () => {
                 'Content-Type': 'application/json',
                 }
             })
+            .then( () => {
+                setReset(!reset)
+                setRevenue(0)
+            })
 
     }
-
+console.log(revenue)
+console.log(reset)
 
     return ( 
         <main>

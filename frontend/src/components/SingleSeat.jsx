@@ -7,12 +7,12 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
 
         useEffect(() => {
             if(number > 12 && bookedStatus === false){
-                setSeatColorState("green")
+                setSeatColorState('w-10 h-10 text-center rounded-full bg-green-500 inline-block')
             }
             else if(number <= 12 && bookedStatus === false){
-                setSeatColorState("blue")
+                setSeatColorState("w-10 h-10 text-center rounded-full bg-blue-500 inline-block")
             }else{
-                setSeatColorState("red")
+                setSeatColorState(`w-10 h-10 text-center rounded-full bg-red-500 inline-block`)
             }
 
         },[])
@@ -22,33 +22,33 @@ const SingleSeat = ({number,bookedStatus,price,id}) => {
         
         /* console.log(seatColor) */
 
-        const [toggle,setToggle] = useState(true)
+        const [toggle,setToggle] = useState(bookedStatus)
 
         /* change body: JSON.stringify({"seatBooked" : true}) now WORKING!!!!! */
         const clickHandler = () => {
             
-            /* console.log(toggle) */
             setToggle(!toggle)
             /* console.log(toggle) */
             
             
             fetch(`http://localhost:9090/api/v1/seats/update/${id}` , {
                 method: "PUT",
-                 headers: {
-                'Content-Type': 'application/json',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({"seatBooked" : toggle}) 
+                body: JSON.stringify({"seatBooked" : !toggle}) 
             })
-
+            
         }
-
+        
+        console.log(toggle)
         return ( 
             <button >
-                <div onClick={clickHandler} className={`w-10 h-10 text-center rounded-full bg-[${seatColorState}] inline-block`}>
+                <div onClick={clickHandler} className={`${seatColorState}`}>
                     <p>{number}</p>
-                    <p>{bookedStatus.toString()}</p>
+                    <p>{`${bookedStatus}`}</p>
                     <p>{price}€</p>
-                    <p>{`${seatColorState}`}</p>
+{/*                     <p>{`${seatColorState}`}</p> */}
                 </div>
             </button>
      )

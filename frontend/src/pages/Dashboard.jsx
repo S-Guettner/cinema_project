@@ -13,7 +13,7 @@ const Dashboard = () => {
     console.log(revenue)
 
     useEffect(() => {
-        fetch(`http://localhost:9090/api/v1/booked-seats`)
+        fetch(`https://cinema-booking-system.vercel.app/api/v1/booked-seats`)
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -35,7 +35,7 @@ const Dashboard = () => {
     const clickHandlerReset = () => {
         
 
-        fetch('http://localhost:9090/api/v1/seats/reset_all' , {
+        fetch('https://cinema-booking-system.vercel.app/api/v1/seats/reset_all' , {
             method: "PUT",
                  headers: {
                 'Content-Type': 'application/json',

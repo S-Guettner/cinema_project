@@ -53,7 +53,7 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
             <button className="m-[.5rem]">
                 <div onClick={clickHandler} className={`${seatColorState}`}>
                     <p className="pt-2">{number}</p>
-                    <p>{`${bookedStatus}`}</p>
+                    {/* <p>{`${bookedStatus}`}</p> */}
                     {/* <p>{price}€</p> */}
                     {/* <p>{`${seatColorState}`}</p> */}
                 </div>

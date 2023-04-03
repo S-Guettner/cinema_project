@@ -12,10 +12,11 @@ const SeatList = () => {
     console.log(fetchTrigger)
 
     useEffect(() => {
-
+            console.log("HALLLLOO")
             fetch(`http://localhost:9090/api/v1/seats`)
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 setSeatData(data?.sort((a, b) => (a.seatNumber > b.seatNumber) ? 1 : -1))
             })
     }, [fetchTrigger])

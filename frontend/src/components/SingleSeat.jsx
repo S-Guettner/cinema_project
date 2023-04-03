@@ -30,9 +30,9 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
         /* change body: JSON.stringify({"seatBooked" : true}) now WORKING!!!!! */
         const clickHandler = () => {
             
-            setToggle(!toggle)
+            
             /* console.log(toggle) */
-            trigger(toggle)
+            
 /*             console.log(trigger) */
             
             fetch(`http://localhost:9090/api/v1/seats/update/${id}` , {
@@ -40,7 +40,10 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({"seatBooked" : !toggle}) 
+                body: JSON.stringify({"seatBooked" : !bookedStatus}) 
+            }).then(() => {
+                /* setToggle(!toggle) */
+                trigger(prev => !prev)
             })
             
         }

@@ -32,8 +32,8 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
             
             setToggle(!toggle)
             /* console.log(toggle) */
-            trigger(!toggle)
-            console.log(trigger)
+            trigger(toggle)
+/*             console.log(trigger) */
             
             fetch(`http://localhost:9090/api/v1/seats/update/${id}` , {
                 method: "PUT",

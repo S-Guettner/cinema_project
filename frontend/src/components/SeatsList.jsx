@@ -7,7 +7,7 @@ const SeatList = () => {
 
     const [seatData,setSeatData] = useState([])
     
-    const [fetchTrigger,setFetchTrigger] = useState(false)
+    const [fetchTrigger,setFetchTrigger] = useState(true)
 
     console.log(fetchTrigger)
 
@@ -20,8 +20,8 @@ const SeatList = () => {
             })
     }, [fetchTrigger])
 
-
-console.log(seatData)
+/* 
+console.log(seatData) */
     return ( 
         <main>
             <div className="w-60 text-center bg-orange-500 mb-12 mt-10">movie screen</div>

@@ -54,7 +54,7 @@ console.log(reset) */
         <main className="text-center">
             <p>{revenue}€ earned</p>
             <p>{soldSeats} of 24 seats booked</p>
-            <button className="block mb-4 border-2 p-2" onClick={clickHandlerReset}>RESET</button>
+            <button className="block mb-4 border-2 p-2 w-10 mx-auto" onClick={clickHandlerReset}>RESET</button>
             <Link className="border-2 p-2" to={'/'}>LINK TO HOME</Link>
         </main>
      );

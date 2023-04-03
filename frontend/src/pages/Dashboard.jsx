@@ -47,15 +47,15 @@ const Dashboard = () => {
             })
 
     }
-console.log(revenue)
-console.log(reset)
+/* console.log(revenue)
+console.log(reset) */
 
     return ( 
         <main>
             <p>{revenue}€ earned</p>
             <p>{soldSeats} of 24 seats booked</p>
-            <button className="block mb-4" onClick={clickHandlerReset}>RESET</button>
-            <Link to={'/'}>LINK TO HOME</Link>
+            <button className="block mb-4 border-2 p-2" onClick={clickHandlerReset}>RESET</button>
+            <Link className="border-2 p-2" to={'/'}>LINK TO HOME</Link>
         </main>
      );
 }

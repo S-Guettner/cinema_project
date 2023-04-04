@@ -45,12 +45,12 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                 /* setToggle(!toggle) */
                 trigger(prev => !prev)
             }).then(() => {
-                fetch(`https://cinema-booking-system.vercel.app//api/v1/send_mail`) , {
+                fetch(`https://cinema-booking-system.vercel.app/api/v1/send_mail`) , {
                     method: "POST",
                     headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(`You have made ${price} €` )
+                body: (`You have made ${price} €` )
                 }
             })
             

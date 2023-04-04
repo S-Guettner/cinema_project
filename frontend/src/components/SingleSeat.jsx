@@ -50,7 +50,7 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                     headers: {
                     'Content-Type': 'application/json',
                 },
-                body: (`You have made ${price} €` )
+                body: ({message: `You have made ${price} €`} )
                 }
             })
             

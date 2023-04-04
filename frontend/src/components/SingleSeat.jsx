@@ -45,7 +45,7 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                 setToggle(!toggle)
                 trigger(prev => !prev)
             }).then(() => {
-                
+                console.log(`${trigger}`)
                 if(toggle == false){
 
                     fetch(`https://cinema-booking-system.vercel.app/api/v1/send_mail` , {

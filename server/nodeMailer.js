@@ -28,9 +28,9 @@ async function mailSender(content) {
   let info = await transporter.sendMail({
     from: `cinema system <${MAIL_ADRESS}>`, // sender address
     to: `${MAIL_ADRESS_RECEIVER}`, // list of receivers
-    subject: "HELLLLLLLLLLLOOOOOO", // Subject line
-    text: `TESTTTTTTT`, // plain text body
-    html: `<b>Hello world?  ${content}</b>`, // html body
+    subject: "New Booking", // Subject line
+    text: `A booking was received you earned ${content}€`, // plain text body
+    html: `<b>A booking was received you earned ${content}€</b>`, // html body
   })
 
   console.log("Message sent: %s", info.messageId);

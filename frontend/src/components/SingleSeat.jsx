@@ -54,7 +54,7 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                         'Content-Type': 'application/json',
                     },
                         body: JSON.stringify({message: `${price}`})
-                    }).then(() => bookedStatus ? console.log("Mail was sent") : console.log("No mail was sent"))
+                    }).then(() => {bookedStatus ? console.log("Mail was sent") : console.log("No mail was sent")})
                 }
             })
             

@@ -21,7 +21,7 @@ const PORT_CLIENT = process.env.PORT_CLIENT.toString()
 
 app.use(cors(
     {
-        origin: '*',
+        origin: 'https://cinema-project-3tel.vercel.app',
         methods: ['GET', 'PUT', `POST`],
         allowedHeaders: ['Content-Type', 'Authorization'],
         preflightContinue: false,
@@ -125,7 +125,7 @@ app.get('/api/v1/booked-seats' , async(req,res) => {
 
 // nodemail
 
-app.post('/api/v1/send_mail', (req,res) => {
+app.post('/api/v1/send_mail',cors(), (req,res) => {
     try {
 /*         const content = req.body
         console.log(req.body) */

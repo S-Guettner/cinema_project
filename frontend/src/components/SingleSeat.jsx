@@ -49,8 +49,7 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                     method: "POST",
                     headers: {
                     'Content-Type': 'application/json',
-                },
-                body: ({message: `You have made ${price} €`} )
+                }
                 })
             })
             

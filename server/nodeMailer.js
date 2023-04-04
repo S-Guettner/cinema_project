@@ -12,12 +12,12 @@ async function mailSender() {
   
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-    host: MAIL_SERVER,
-    port: MAIL_PORT,
+    host: "sandbox.smtp.mailtrap.io",
+    port: 2525,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: MAIL_ADRESS, // generated ethereal user
-      pass: MAIL_PASS, // generated ethereal password
+    user: "bf08c5ca1a5308",
+    pass: "a364722bbef2d5", // generated ethereal password
     },
     tls: {
         rejectUnauthorized: false

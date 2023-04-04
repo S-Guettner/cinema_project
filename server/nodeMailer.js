@@ -5,6 +5,7 @@ const MAIL_ADRESS = process.env.MAIL_ADRESS
 const MAIL_PASS = process.env.MAIL_PASS
 const MAIL_PORT = process.env.MAIL_PORT
 const MAIL_SERVER = process.env.MAIL_SERVER
+const MAIL_ADRESS_RECEIVER = process.env.MAIL_ADRESS_RECEIVER
 
 // async..await is not allowed in global scope, must use a wrapper
 async function mailSender(content) {
@@ -26,7 +27,7 @@ async function mailSender(content) {
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: `cinema system <${MAIL_ADRESS}>`, // sender address
-    to: "tadipah118@dogemn.com", // list of receivers
+    to: `${MAIL_ADRESS_RECEIVER}`, // list of receivers
     subject: "Hello ✔ test 2", // Subject line
     text: `${content}`, // plain text body
     html: "<b>Hello world?</b>", // html body

@@ -35,7 +35,7 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
             
 /*             console.log(trigger) */
             
-            fetch(`http://localhost:9090/api/v1/seats/update/${id}` , {
+            fetch(`https://cinema-booking-system.vercel.app/api/v1/seats/update/${id}` , {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,6 +44,14 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
             }).then(() => {
                 /* setToggle(!toggle) */
                 trigger(prev => !prev)
+            }).then(() => {
+                fetch(`https://cinema-booking-system.vercel.app//api/v1/send_mail`) , {
+                    method: "POST",
+                    headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(`You have made ${price} €` )
+                }
             })
             
         }

@@ -125,12 +125,12 @@ app.get('/api/v1/booked-seats' , async(req,res) => {
 
 // nodemail
 
-app.post('/api/v1/send_mail',cors(), (req,res) => {
+app.put('/api/v1/send_mail',cors(), (req,res) => {
     try {
 /*         const content = req.body
         console.log(req.body) */
         // nodemail function
-        mailSender(req.body)
+        mailSender()
         res.status(200).json({message:"mail was sent"})
         
     } catch (err) {

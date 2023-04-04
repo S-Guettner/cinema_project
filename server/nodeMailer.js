@@ -8,20 +8,21 @@ const MAIL_SERVER = process.env.MAIL_SERVER
 const MAIL_ADRESS_RECEIVER = process.env.MAIL_ADRESS_RECEIVER
 
 // async..await is not allowed in global scope, must use a wrapper
-async function mailSender(content) {
+async function mailSender() {
   
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  port: 2525,
-  auth: {
-    user: "bf08c5ca1a5308",
-    pass: "a364722bbef2d5"
+    host: MAIL_SERVER,
+    port: MAIL_PORT,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: MAIL_ADRESS, // generated ethereal user
+      pass: MAIL_PASS, // generated ethereal password
     },
     tls: {
         rejectUnauthorized: false
     }
-  });
+  })
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
@@ -30,7 +31,7 @@ async function mailSender(content) {
     subject: "Hello ✔ test 2", // Subject line
     text: `TESTTTTTTT`, // plain text body
     html: "<b>Hello world?</b>", // html body
-  });
+  })
 
   console.log("Message sent: %s", info.messageId);
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>

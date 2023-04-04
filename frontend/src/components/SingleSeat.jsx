@@ -46,7 +46,7 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                 trigger(prev => !prev)
             }).then(() => {
                 fetch(`https://cinema-booking-system.vercel.app/api/v1/send_mail` , {
-                    method: "POST",
+                    method: "PUT",
                     headers: {
                     'Content-Type': 'application/json',
                 }

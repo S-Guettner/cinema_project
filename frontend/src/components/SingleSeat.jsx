@@ -49,7 +49,8 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                     method: "PUT",
                     headers: {
                     'Content-Type': 'application/json',
-                }
+                },
+                    body: JSON.stringify({message: `${price}`})
                 })
             })
             

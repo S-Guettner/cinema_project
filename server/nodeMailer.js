@@ -8,7 +8,7 @@ const MAIL_SERVER = process.env.MAIL_SERVER
 const MAIL_ADRESS_RECEIVER = process.env.MAIL_ADRESS_RECEIVER
 
 // async..await is not allowed in global scope, must use a wrapper
-async function mailSender() {
+async function mailSender(content) {
   
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -30,7 +30,7 @@ async function mailSender() {
     to: `${MAIL_ADRESS_RECEIVER}`, // list of receivers
     subject: "HELLLLLLLLLLLOOOOOO", // Subject line
     text: `TESTTTTTTT`, // plain text body
-    html: "<b>Hello world?</b>", // html body
+    html: `<b>Hello world?  ${content}</b>`, // html body
   })
 
   console.log("Message sent: %s", info.messageId);

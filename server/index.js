@@ -130,7 +130,7 @@ app.put('/api/v1/send_mail',cors(), (req,res) => {
 /*         const content = req.body
         console.log(req.body) */
         // nodemail function
-        mailSender()
+        mailSender(req.body)
         res.status(200).json({message:"mail was sent"})
         
     } catch (err) {

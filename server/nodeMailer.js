@@ -29,7 +29,7 @@ async function mailSender(content) {
     from: `cinema system <${MAIL_ADRESS}>`, // sender address
     to: `${MAIL_ADRESS_RECEIVER}`, // list of receivers
     subject: "Hello ✔ test 2", // Subject line
-    text: `${content}`, // plain text body
+    text: `TESTTTTTTT`, // plain text body
     html: "<b>Hello world?</b>", // html body
   });
 

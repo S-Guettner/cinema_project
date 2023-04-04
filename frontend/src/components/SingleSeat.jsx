@@ -42,11 +42,11 @@ const SingleSeat = ({number,bookedStatus,price,id,trigger}) => {
                 },
                 body: JSON.stringify({"seatBooked" : !bookedStatus}) 
             }).then(() => {
-                /* setToggle(!toggle) */
+                setToggle(!toggle)
                 trigger(prev => !prev)
             }).then(() => {
                 
-                console.log("test trigger")
+                console.log(`${toggle}`)
                 fetch(`https://cinema-booking-system.vercel.app/api/v1/send_mail` , {
                     method: "PUT",
                     headers: {
